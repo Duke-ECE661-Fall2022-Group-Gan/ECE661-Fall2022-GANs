@@ -68,7 +68,7 @@ class Discriminator(nn.Module):
 
 if __name__ == "__main__":
     ## Sanity Check
-    generator = Generator(100)
+    generator = Generator(110)
     discriminator = Discriminator(10)
     
     # sanity check for the correctness of Generator
@@ -81,10 +81,10 @@ if __name__ == "__main__":
 
     # Generator Definition  
     generator = generator.to(device)
-    summary(generator, (100,))
+    summary(generator, (110,))
 
     # Test forward pass
-    z = torch.randn(5,100)
+    z = torch.randn(5,110)
     z = z.to(device)
     out = generator.forward(z)
     # Check output shape

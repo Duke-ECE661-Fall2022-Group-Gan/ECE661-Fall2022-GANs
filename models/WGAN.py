@@ -20,7 +20,7 @@ class Generator(nn.Module):
         self.block2 = block(256, 128, 4, 2, 1)
         self.block3 = block(128, 64, 4, 2, 1)
         self.final = nn.Sequential(
-            nn.ConvTranspose2d(64, 3, 4, 2, 1),
+            nn.ConvTranspose2d(64, 3, 4, 2, 1, bias=False),
             nn.Tanh()
         )
 
@@ -48,8 +48,7 @@ class Discriminator(nn.Module):
         self.block2 = block(64, 128, 4, 2, 1)
         self.block3 = block(128, 256, 4, 2, 1)
         self.final = nn.Sequential(
-            nn.Conv2d(256, 1, 4, 1, 0, bias=False),
-            nn.Sigmoid()
+            nn.Conv2d(256, 1, 4, 1, 0, bias=False)
         )
 
     def forward(self, img):
