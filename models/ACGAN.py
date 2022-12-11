@@ -16,7 +16,6 @@ class Generator(nn.Module):
             layers.append(nn.LeakyReLU(0.2, inplace=True))
             return nn.Sequential(*layers)
         
-        
         self.block1 = block(latent_dim, 256, 4, 1, 0)
         self.block2 = block(256, 128, 4, 2, 1)
         self.block3 = block(128, 64, 4, 2, 1)

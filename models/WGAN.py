@@ -20,7 +20,7 @@ class Generator(nn.Module):
         self.block2 = block(256, 128, 4, 2, 1)
         self.block3 = block(128, 64, 4, 2, 1)
         self.final = nn.Sequential(
-            nn.ConvTranspose2d(64, 3, 4, 2, 1, bias=False),
+            nn.ConvTranspose2d(64, 3, 4, 2, 1),
             nn.Tanh()
         )
 
