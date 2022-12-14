@@ -13,7 +13,7 @@ class Generator(nn.Module):
             layers = []
             layers.append(nn.ConvTranspose2d(input_dim, output_dim, k, s, p, bias=False))
             layers.append(nn.BatchNorm2d(output_dim))
-            layers.append(nn.LeakyReLU(0.2, inplace=True))
+            layers.append(nn.ReLU())
             return nn.Sequential(*layers)
         
         self.block1 = block(latent_dim, 256, 4, 1, 0)

@@ -40,7 +40,7 @@ class Discriminator(nn.Module):
         def block(input_dim, output_dim, k, s, p):
             layers = []
             layers.append(nn.Conv2d(input_dim, output_dim, k, s, p, bias=False))
-            layers.append(nn.BatchNorm2d(output_dim))
+            # layers.append(nn.BatchNorm2d(output_dim))
             layers.append(nn.LeakyReLU(0.2, inplace=True))
             return nn.Sequential(*layers)
         
